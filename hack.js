@@ -1,4 +1,5 @@
 let pardiv=document.getElementById("parent")
+pardiv.classList.add("col-sm-12","col-md-12","col-lg-12","col-xl-12")
 
  fetch("https://www.anapioficeandfire.com/api/books?pg=1&pagesize=15")
 .then((data)=>data.json())
@@ -8,12 +9,14 @@ let pardiv=document.getElementById("parent")
    {
        
     let bname=document.createElement("div")
+    bname.classList.add("col-sm-12","col-md-12","col-lg-12","col-xl-12")
     bname.classList.add("fs-5","text-primary","text-center")
     bname.innerHTML=`${i+1}.${res[i].name}`;
     pardiv.appendChild(bname)}
     })
 
 searchdiv=document.getElementById("srch")
+searchdiv.classList.add("col-sm-12","col-md-12","col-lg-12","col-xl-12")
 search=document.createElement("input")
 search.classList.add("col-2")
 search.setAttribute("type","text")
@@ -22,7 +25,6 @@ search.setAttribute("placeholder","search")
 searchdiv.appendChild(search)
 
 btn=document.createElement("Button")
-btn.classList.add("col-1")
 btn.setAttribute("type","reset")
 btn.innerText="search"
 btn.setAttribute("onclick","pg(search.value)")
@@ -113,6 +115,7 @@ alert("Please enter Number 1-12")
 
 }
 allpara=document.getElementById("all")
+allpara.classList.add("col-sm-12","col-md-12","col-lg-12","col-xl-12")
 all=document.createElement("h3")
 all.innerHTML="Click below to know the Details of all books"
 allpara.appendChild(all)
@@ -134,6 +137,7 @@ res.map((data)=>
  pardiv.classList.add("row")  
  
  pardivcol=document.createElement("div")
+ pardivcol.setAttribute("id","par")
  pardivcol.classList.add("col-6")
  pardiv.appendChild(pardivcol)
 
@@ -154,12 +158,12 @@ pardivcol.appendChild(page)
 
 let author=document.createElement("p")
 author.classList.add("fs-4","text-success","text-center")
-author.innerHTML=`Author:${data.authors}`;
+author.innerHTML=`Author:<br>${data.authors}`;
 pardivcol.appendChild(author)
 
 let publisher=document.createElement("p")
 publisher.classList.add("fs-4","text-success","text-center")
-publisher.innerHTML=`Publisher:${data.publisher}`;
+publisher.innerHTML=`Publisher:<br>${data.publisher}`;
 pardivcol.appendChild(publisher)
 
 let released=document.createElement("p")
